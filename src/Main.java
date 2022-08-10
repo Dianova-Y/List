@@ -40,16 +40,14 @@ public class Main {
                     Scanner scanner1 = new Scanner(System.in);
                     try {
                         int delProd = scanner1.nextInt();
-                        System.out.println("Покупка " + list.get(delProd - 1) + " удалена, список покупок:");
+                        System.out.println("Покупка " + list.get(delProd - 1) + " удалена.");
                         list.remove(delProd - 1);
                     } catch (InputMismatchException exception) {
                         String delProd = scanner1.nextLine();
                         list.remove(delProd);
-                        System.out.println("Покупка " + delProd + " удалена, список покупок:");
+                        System.out.println("Покупка " + delProd + " удалена.");
                     }
-                    for (int i = 0; i < list.size(); i++) {
-                        System.out.println((i + 1) + ". " + list.get(i));
-                    }
+                    output(list);
                     break;
                 case 4:
                     System.out.println("Введите текст для поиска:");
