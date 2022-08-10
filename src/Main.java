@@ -4,10 +4,15 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static void output(ArrayList<String> list) {
+        System.out.println("Список покупок:");
+        for (String s : list) {
+            System.out.println((list.indexOf(s) + 1) + ". " + s);
+        }
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         ArrayList<String> list = new ArrayList<>();
         while (true) {
             System.out.println("Выберите операцию.");
@@ -27,16 +32,10 @@ public class Main {
                     System.out.println("Итого в списке продуктов " + list.size());
                     break;
                 case 2:
-                    System.out.println("Список покупок:");
-                    for (int i = 0; i < list.size(); i++) {
-                        System.out.println((i + 1) + ". " + list.get(i));
-                    }
+                    output(list);
                     break;
                 case 3:
-                    System.out.println("Список покупок:");
-                    for (String s : list) {
-                        System.out.println((list.indexOf(s) + 1) + ". " + s);
-                    }
+                    output(list);
                     System.out.println("Какую хотите удалить? Введите номер или название");
                     Scanner scanner1 = new Scanner(System.in);
                     try {
@@ -45,9 +44,8 @@ public class Main {
                         list.remove(delProd - 1);
                     } catch (InputMismatchException exception) {
                         String delProd = scanner1.nextLine();
-                        System.out.println("Покупка " + delProd + " удалена, список покупок:");
                         list.remove(delProd);
-
+                        System.out.println("Покупка " + delProd + " удалена, список покупок:");
                     }
                     for (int i = 0; i < list.size(); i++) {
                         System.out.println((i + 1) + ". " + list.get(i));
